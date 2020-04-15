@@ -1,0 +1,22 @@
+{
+  "name" : "hello/module-bank-transfer",
+  "description" : "Hello Bank Transfer",
+  "require" : {
+    "php" : "~5.6.5|7.0.2|7.0.4|~7.0.6",
+    "magento/module-config" : "100.1.*",
+    "magento/framework" : "100.1.*",
+    "hello/module-config" : "2.0.4",
+    "hello/module-bank" : "100.0.*"
+  },
+  "type" : "magento2-module",
+  "version" : "100.0.0",
+  "license" : "proprietary",
+  "autoload" : {
+    "files" : [
+      "registration.php"
+    ],
+    "psr-4" : {
+      "Hello\\BankTransfer\\" : ""
+    }
+  }
+}

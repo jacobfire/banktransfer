@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Hello, LLC. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="SalesOrderViewWidgetContext" type="\Magento\Backend\Block\Widget\Context">
+        <arguments>
+            <argument name="buttonList" xsi:type="object">Hello\BankTransfer\Block\Adminhtml\Order\View\ButtonList</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Sales\Block\Adminhtml\Order\View">
+        <arguments>
+            <argument name="context" xsi:type="object">SalesOrderViewWidgetContext</argument>
+        </arguments>
+    </type>
+</config>

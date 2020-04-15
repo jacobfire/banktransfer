@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Hello, LLC. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Sales\Block\Adminhtml\Order\View\Tab\Transactions">
+        <plugin name="show-transaction-tab-for-offline"
+                type="Hello\BankTransfer\Plugin\Block\Adminhtml\Order\View\TransactionsPlugin" sortOrder="50" />
+    </type>
+    <type name="Magento\Sales\Api\OrderManagementInterface">
+        <plugin name="MyOrderPlaceAfterPlugin"
+                type="Hello\BankTransfer\Plugin\Order\PlaceAfterPlugin" sortOrder="99" />
+    </type>
+    <type name="Magento\OfflinePayments\Model\Banktransfer">
+        <plugin name="IsAvailableBankTransferAroundPlugin"
+                type="Hello\BankTransfer\Plugin\OfflinePayments\Model\BanktransferPlugin" sortOrder="99" />
+    </type>
+</config>

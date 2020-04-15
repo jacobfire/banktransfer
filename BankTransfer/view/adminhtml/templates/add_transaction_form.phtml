@@ -1,0 +1,22 @@
+<?php
+/**
+ * Copyright © 2018 Hello, LLC. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+/**
+ * @var \Hello\BankTransfer\Block\Adminhtml\Order\View\Template $block
+ */
+?>
+<?php $formName = 'transaction_add' ?>
+<label><?php echo __('Add Transaction ID:') ?></label>
+<div id="sender-wrapper" style="width: 210px;">
+    <form name="<?php echo $formName ?>" enctype="multipart/form-data" action="<?php echo $block->getSaveUrl() ?>"
+          data-mage-init='{"validation":{}}' type="GET">
+        <input style="width: 210px; margin:5px 5px 5px 0;" data-form-part="<?php echo $formName ?>" data-validate='{"required":true, "minlength": 22}'
+               name="txn_id" id="txn_id" type="text" value="" class="number no-whitespace" /></br>
+        <input data-form-part="<?php echo $formName ?>" name="form_key" type="hidden"
+               value="<?php echo $block->getFormKey() ?>" />
+        <button type="button" onclick="setLocation('<?php echo $block->getReturnUrl() ?>');"><?php echo __('Back To Order') ?></button>
+        <button type="submit"><?php echo __('Save ID') ?></button>
+    </form>
+</div>

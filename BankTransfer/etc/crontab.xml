@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Hello, LLC. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="banktransfer_check_order_status" instance="Hello\BankTransfer\Cron\StatusCheck" method="execute">
+            <schedule>*/5 * * * *</schedule>
+        </job>
+        <job name="banktransfer_cancel_expired" instance="Hello\BankTransfer\Cron\CancelExpired" method="execute">
+            <schedule>* */1 * * *</schedule>
+        </job>
+        <job name="banktransfer_send_finance_report" instance="Hello\BankTransfer\Cron\FinanceReport" method="execute">
+            <config_path>payment/banktransfer/cron_time</config_path>
+        </job>
+    </group>
+</config>

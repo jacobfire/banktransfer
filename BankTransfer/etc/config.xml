@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Hello, LLC. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <banktransfer>
+                <expire_days>3</expire_days>
+                <reminder_time_delay>24</reminder_time_delay>
+                <quote_product_conditions
+                        backend_model="Hello\Config\Model\Adminhtml\System\Config\Conditions"
+                >
+                </quote_product_conditions>
+            </banktransfer>
+        </payment>
+    </default>
+</config>

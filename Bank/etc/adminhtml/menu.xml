@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Hello, LLC. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Hello_Bank::management"
+             title="Bank Management"
+             translate="title"
+             module="Hello_Bank"
+             sortOrder="200"
+             parent="Magento_Backend::stores"
+             resource="Hello_Bank::management"
+        />
+        <add id="Hello_Bank:settings"
+             translate="title"
+             title="Manage Requisites" module="Hello_Bank"
+             sortOrder="100"
+             parent="Hello_Bank::management"
+             action="bank/requisites/index"
+             resource="Hello_Bank::management"
+        />
+    </menu>
+</config>

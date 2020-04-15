@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Hello, LLC. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Hello\Bank\Api\Data\BankInterface" type="Hello\Bank\Model\Bank" />
+    <preference for="Hello\Bank\Api\BankManagementInterface" type="Hello\Bank\Model\BankManagement" />
+    <preference for="Hello\Bank\Api\BankRepositoryInterface" type="Hello\Bank\Model\BankRepository" />
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="bank_grid_data_source" xsi:type="string">Hello\Bank\Model\ResourceModel\Bank\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Hello\Bank\Api\Data\BankInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">hello_bank_requisites</item>
+                    <item name="identifierField" xsi:type="string">row_id</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\EntityManager\HydratorPool">
+        <arguments>
+            <argument name="hydrators" xsi:type="array">
+                <item name="Hello\Bank\Api\Data\BankCollectionInterface" xsi:type="string">BankHydrator</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="BankHydrator" type="Hello\EntityManager\Model\CollectionHydrator">
+        <arguments>
+            <argument name="entity" xsi:type="object">Hello\Bank\Model\BankFactory</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Hello\Bank\Api\Data\BankCollectionInterface" type="Hello\EntityManager\Model\CollectionInterface" />
+</config>

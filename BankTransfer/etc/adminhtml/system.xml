@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Hello, LLC. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment" translate="label" type="text" sortOrder="111" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="banktransfer" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="quote_product_conditions" translate="label" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Bank Transfer Conditions</label>
+                    <frontend_model>Hello\Config\Block\Adminhtml\Form\Field\Conditions</frontend_model>
+                    <backend_model>Hello\Config\Model\Adminhtml\System\Config\Conditions</backend_model>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="expire_days" translate="label" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Expiration of payment (days)</label>
+                </field>
+                <field id="reminder_time_delay" translate="label" sortOrder="222" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Reminder Time Delay (hous)</label>
+                </field>
+                <field id="banktransfer_reminder_email_template" translate="label comment" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Reminder Email Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <!-- This model return all transactional email template list of magento -->
+                </field>
+                <field id="banktransfer_report_email_template" translate="label comment" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Report Email Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <!-- This model return all transactional email template list of magento -->
+                </field>
+                <field id="time" translate="label" type="time" sortOrder="230" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Time Of Sending Finance Report</label>
+                    <backend_model>Hello\BankTransfer\Model\System\Config\Backend\FinanceReportTime</backend_model>
+                </field>
+                <field id="report_recipient" translate="label" type="text" sortOrder="240" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>E-mails addresses who get reports</label>
+                    <comment>E-mails should be comma separated</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
